@@ -107,7 +107,7 @@ h2{font-size:clamp(34px,4.4vw,54px);margin-bottom:16px}
 
 /* ---------- hero ---------- */
 .hero{padding:72px 0 88px}
-.hero .grade{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero .grade{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .hero .painel{padding:52px 52px 46px;position:relative;z-index:2}
 .hero h1{font-size:clamp(42px,5.6vw,76px);margin:22px 0 22px;letter-spacing:-.5px}
 .hero .lead{margin-bottom:34px}
@@ -116,14 +116,14 @@ h2{font-size:clamp(34px,4.4vw,54px);margin-bottom:16px}
 .publico .tile{width:48px;height:48px;border-radius:15px}
 .publico .tile svg{width:24px;height:24px}
 .publico p{font-weight:600;color:var(--navy);line-height:1.3;font-size:15px;margin-left:6px}
-.arte{position:relative;aspect-ratio:1;display:grid;place-items:center}
-.arte .catavento{width:88%;animation:gira 60s linear infinite;filter:drop-shadow(0 30px 40px rgba(10,42,85,.22))}
+.arte{position:relative;z-index:1;aspect-ratio:1;display:grid;place-items:center}
+.arte .catavento{width:132%;max-width:none;animation:gira 60s linear infinite;filter:drop-shadow(0 30px 40px rgba(10,42,85,.22))}
 @keyframes gira{to{transform:rotate(360deg)}}
 .arte .selo{position:absolute;padding:16px 20px;display:flex;align-items:center;gap:14px;border-radius:22px}
 .arte .selo b{display:block;font-family:var(--serif);font-size:30px;color:var(--navy);line-height:1}
 .arte .selo small{font-size:13px;font-weight:500;color:var(--texto);line-height:1.3;display:block}
-.arte .s1{left:-6%;bottom:12%}
-.arte .s2{right:-2%;top:8%}
+.arte .s1{left:-8%;bottom:4%}
+.arte .s2{right:-4%;top:0}
 
 .trilha{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
 .trilha path{fill:none;stroke:var(--navy);stroke-opacity:.32;stroke-width:1.6;stroke-dasharray:7 9;stroke-linecap:round;vector-effect:non-scaling-stroke}
@@ -290,6 +290,7 @@ footer p{max-width:560px;line-height:1.55}
   .menu.aberto a{padding:14px 18px;font-size:17px}
   .hero .grade,.mais,.empresas{grid-template-columns:minmax(0,1fr)}
   .arte{max-width:440px;margin:0 auto;width:100%}
+  .arte .catavento{width:112%}
   .especialidades,.difs,.canais,.depos{grid-template-columns:repeat(2,1fr)}
   .passos{grid-template-columns:repeat(2,1fr)}
 }
@@ -297,7 +298,7 @@ footer p{max-width:560px;line-height:1.55}
   body{font-size:16px}
   .wrap{width:calc(100% - 32px)}
   section{padding:64px 0}
-  .hero{padding:36px 0 56px}
+  .hero{padding:36px 0 56px;overflow-x:clip}
   .hero .painel{padding:32px 24px 28px}
   .hero .acoes .btn{width:100%;justify-content:center}
   .frentes,.especialidades,.difs,.canais,.passos,.depos{grid-template-columns:minmax(0,1fr)}
