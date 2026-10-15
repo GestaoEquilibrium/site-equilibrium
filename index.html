@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equilibrium Medcenter · Uberlândia</title>
+<meta name="description" content="Clínica multidisciplinar em Uberlândia/MG: psicologia, neuropsicologia, psiquiatria, terapia ocupacional, fonoaudiologia, terapia ABA e mais. Da infância à terceira idade.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="canonical" href="https://equilibriummedcenter.site/">
+<meta property="og:title" content="Equilibrium Medcenter · Uberlândia">
+<meta property="og:description" content="Clínica multidisciplinar em Uberlândia/MG. Psicologia, neuropsicologia, psiquiatria e terapias do neurodesenvolvimento, da infância à terceira idade.">
+<meta property="og:image" content="https://equilibriummedcenter.site/assets/logo.png">
+<meta property="og:url" content="https://equilibriummedcenter.site/">
+<meta property="og:locale" content="pt_BR">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Lufga';src:url(assets/fonts/Lufga-Regular.otf) format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'Lufga';src:url(assets/fonts/Lufga-Medium.otf) format('opentype');font-weight:500;font-display:swap}
+@font-face{font-family:'Lufga';src:url(assets/fonts/Lufga-SemiBold.otf) format('opentype');font-weight:600;font-display:swap}
+@font-face{font-family:'Lufga';src:url(assets/fonts/Lufga-Bold.otf) format('opentype');font-weight:700;font-display:swap}
+
+:root{
+  --azul:#1068b2; --ciano:#56c4cf; --navy:#123A6E; --noite:#0C1A26;
+  --texto:#3E5674; --suave:#6B7F96;
+  --ceu1:#EEF6FC; --ceu2:#D9ECF8; --ceu3:#C4E1F4;
+  --vidro:linear-gradient(145deg,rgba(255,255,255,.66),rgba(255,255,255,.30));
+  --borda:1.5px solid rgba(255,255,255,.85);
+  --sombra:0 20px 44px rgba(16,104,178,.14),inset 0 1px 0 rgba(255,255,255,.9);
+  --raio:28px;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Lufga',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 1.4 -0.35'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:var(--sans);color:var(--texto);line-height:1.6;font-size:17px;
+  background:linear-gradient(170deg,var(--ceu1) 0%,var(--ceu2) 45%,var(--ceu3) 100%) fixed;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---------- textura: manchas desfocadas + granulação ---------- */
+.manchas{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.manchas i{position:absolute;border-radius:50%;filter:blur(80px)}
+.manchas i:nth-child(1){width:520px;height:520px;right:-140px;top:-80px;background:var(--ciano);opacity:.5}
+.manchas i:nth-child(2){width:600px;height:520px;left:-200px;bottom:-160px;background:var(--azul);opacity:.32}
+.manchas i:nth-child(3){width:420px;height:380px;left:30%;top:30%;background:#fff;opacity:.7}
+.grao{position:fixed;inset:0;z-index:100;pointer-events:none;background:var(--noise);background-size:180px;opacity:.85;mix-blend-mode:soft-light}
+.grao::after{content:"";position:absolute;inset:0;background:var(--noise);background-size:240px;opacity:.22;mix-blend-mode:multiply}
+
+/* ---------- utilitários ---------- */
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:96px 0;position:relative}
+.vidro{background:var(--vidro);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:var(--borda);box-shadow:var(--sombra);border-radius:var(--raio)}
+.serif{font-family:var(--serif)}
+h1,h2,h3{font-family:var(--serif);color:var(--navy);font-weight:600;line-height:1.06}
+h1 em,h2 em{color:var(--azul);font-style:italic}
+h2{font-size:clamp(34px,4.4vw,54px);margin-bottom:16px}
+.sobre{font-size:12.5px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--azul);
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.sobre::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ciano);box-shadow:0 0 0 4px rgba(86,196,207,.25)}
+.lead{font-size:clamp(17px,1.5vw,19px);max-width:620px}
+.cabeca{max-width:760px;margin-bottom:48px}
+.cabeca.centro{text-align:center;margin-inline:auto}
+.cabeca.centro .lead{margin-inline:auto}
+
+.etiqueta{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:30px;background:var(--cor,var(--azul));
+  color:#fff;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.etiqueta::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:40px;font-weight:600;font-size:16px;
+  transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-escuro{background:var(--navy);color:#fff;box-shadow:0 12px 26px rgba(10,30,60,.25)}
+.btn-escuro:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(10,30,60,.3)}
+.btn-vidro{background:var(--vidro);border:var(--borda);color:var(--navy);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.btn-vidro:hover{transform:translateY(-2px);background:rgba(255,255,255,.8)}
+.btn-seta{padding:7px 20px 7px 7px}
+.btn-seta span.ic{width:34px;height:34px;border-radius:50%;background:var(--navy);display:grid;place-items:center}
+.btn-seta span.ic svg{width:16px;height:16px}
+
+.tile{width:52px;height:52px;border-radius:16px;background:var(--cor,var(--navy));display:grid;place-items:center;flex:none;
+  box-shadow:0 10px 20px rgba(18,58,110,.22)}
+.tile svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+.bolha{position:absolute;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 22%,rgba(150,205,235,.18) 60%,rgba(16,104,178,.12) 100%);
+  border:1px solid rgba(255,255,255,.8);box-shadow:0 12px 28px rgba(16,104,178,.18);animation:flutua 9s ease-in-out infinite}
+@keyframes flutua{50%{transform:translateY(-14px)}}
+
+/* ---------- topo ---------- */
+.topo{position:sticky;top:14px;z-index:50;margin-top:14px}
+.topo .barra{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 14px;border-radius:40px}
+.topo .barra::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--vidro);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:var(--borda);box-shadow:var(--sombra)}
+.chip{display:flex;align-items:center;gap:10px}
+.chip .toggle{width:40px;height:26px;border-radius:14px;background:var(--navy);position:relative;flex:none}
+.chip .toggle::after{content:"";position:absolute;right:4px;top:4px;width:18px;height:18px;border-radius:50%;background:#fff}
+.chip img{height:52px;width:auto}
+.menu{display:flex;gap:4px;list-style:none}
+.menu a{display:block;padding:9px 12px;border-radius:30px;font-size:14.5px;white-space:nowrap;font-weight:500;color:var(--navy);transition:background .2s}
+.menu a:hover{background:rgba(255,255,255,.7)}
+.topo .btn{padding:11px 20px;font-size:15px}
+.abre-menu{display:none;width:46px;height:46px;border-radius:50%;border:var(--borda);background:var(--vidro);cursor:pointer;place-items:center}
+.abre-menu svg{width:22px;height:22px;stroke:var(--navy)}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 88px}
+.hero .grade{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero .painel{padding:52px 52px 46px;position:relative;z-index:2}
+.hero h1{font-size:clamp(42px,5.6vw,76px);margin:22px 0 22px;letter-spacing:-.5px}
+.hero .lead{margin-bottom:34px}
+.hero .acoes{display:flex;flex-wrap:wrap;gap:12px}
+.publico{display:flex;align-items:center;gap:12px;margin-top:38px;padding-top:28px;border-top:1px solid rgba(18,58,110,.12)}
+.publico .tile{width:48px;height:48px;border-radius:15px}
+.publico .tile svg{width:24px;height:24px}
+.publico p{font-weight:600;color:var(--navy);line-height:1.3;font-size:15px;margin-left:6px}
+.arte{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.arte .catavento{width:88%;animation:gira 60s linear infinite;filter:drop-shadow(0 30px 40px rgba(10,42,85,.22))}
+@keyframes gira{to{transform:rotate(360deg)}}
+.arte .selo{position:absolute;padding:16px 20px;display:flex;align-items:center;gap:14px;border-radius:22px}
+.arte .selo b{display:block;font-family:var(--serif);font-size:30px;color:var(--navy);line-height:1}
+.arte .selo small{font-size:13px;font-weight:500;color:var(--texto);line-height:1.3;display:block}
+.arte .s1{left:-6%;bottom:12%}
+.arte .s2{right:-2%;top:8%}
+
+.trilha{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.trilha path{fill:none;stroke:var(--navy);stroke-opacity:.32;stroke-width:1.6;stroke-dasharray:7 9;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.balao{position:absolute;pointer-events:none;z-index:1;filter:drop-shadow(0 14px 18px rgba(16,60,120,.22));animation:sobe 11s ease-in-out infinite}
+.balao svg{width:100%;height:100%;display:block}
+@keyframes sobe{50%{transform:translate(6px,-18px) rotate(2deg)}}
+.local{display:inline-flex;align-items:center;gap:8px;margin-left:8px;padding:6px 14px;border-radius:30px;font-size:13px;font-weight:600;color:var(--navy);
+  background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.9)}
+.slogan{font-family:var(--serif);font-style:italic;color:var(--azul)}
+
+/* ---------- frentes ---------- */
+.frentes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.frente{padding:34px 32px 32px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.frente::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--cor)}
+.frente small{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--suave);text-transform:uppercase}
+.frente h3{font-size:32px;margin:6px 0 4px}
+.frente .para{font-size:12.5px;font-weight:700;letter-spacing:1.6px;color:var(--cor);text-transform:uppercase;margin-bottom:16px}
+.frente p{font-size:16px}
+.frente .tile{position:absolute;right:26px;top:30px;width:46px;height:46px;border-radius:14px}
+.frente .tile svg{width:22px;height:22px}
+
+/* ---------- especialidades ---------- */
+.especialidades{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.espec{padding:28px 28px 24px;display:flex;flex-direction:column;gap:14px;transition:transform .25s,box-shadow .25s}
+.espec:hover{transform:translateY(-4px);box-shadow:0 28px 54px rgba(16,104,178,.2),inset 0 1px 0 rgba(255,255,255,.9)}
+.espec .linha{display:flex;align-items:center;gap:16px}
+.espec h3{font-size:25px}
+.espec p{font-size:15.5px;flex:1}
+.idades{display:flex;flex-wrap:wrap;gap:6px}
+.idades span{font-size:12.5px;font-weight:600;color:var(--navy);padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.75);border:1px solid rgba(18,58,110,.1)}
+
+/* ---------- como funciona ---------- */
+.passos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:p}
+.passo{padding:30px 26px;position:relative}
+.passo::before{counter-increment:p;content:"0" counter(p);font-family:var(--serif);font-style:italic;font-size:44px;color:var(--ciano);line-height:1;display:block;margin-bottom:18px}
+.passo h3{font-size:22px;margin-bottom:8px}
+.passo p{font-size:15.5px}
+
+/* ---------- cartão +saúde ---------- */
+.mais{padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;overflow:hidden;position:relative}
+.cartao{width:min(400px,100%);aspect-ratio:1.586;border-radius:24px;position:relative;overflow:hidden;margin:auto;transform:rotate(-6deg);
+  background:linear-gradient(135deg,#2E5DA8 0%,#1F4C93 55%,#3F75C2 100%);box-shadow:0 34px 60px rgba(15,43,79,.35);transition:transform .4s}
+.cartao:hover{transform:rotate(-2deg) scale(1.02)}
+.cartao::after{content:"";position:absolute;inset:0;background:var(--noise);background-size:160px;opacity:.35;mix-blend-mode:soft-light}
+.cartao .marca{position:absolute;left:26px;top:24px;display:flex;align-items:center;gap:10px;color:#fff}
+.cartao .marca img{width:34px;filter:brightness(0) invert(1)}
+.cartao .marca b{display:block;font-size:20px;font-weight:600;line-height:1}
+.cartao .marca i{font-family:var(--serif);font-size:15px;opacity:.85}
+.cartao .rot{position:absolute;left:26px;top:50%;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.7)}
+.cartao .num{position:absolute;left:26px;bottom:24px;font-size:20px;letter-spacing:3px;color:#fff;font-weight:500;white-space:nowrap}
+.cartao svg{position:absolute;right:-50px;bottom:-60px;width:260px;opacity:.16}
+.preco{display:flex;align-items:baseline;gap:8px;margin:20px 0 6px;color:var(--navy)}
+.preco b{font-family:var(--serif);font-size:58px;line-height:1}
+.preco span{font-size:16px;font-weight:500}
+.lista{list-style:none;margin:22px 0 28px;display:grid;gap:12px}
+.lista li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.lista li::before{content:"";flex:none;width:24px;height:24px;border-radius:50%;margin-top:1px;
+  background:var(--navy) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12.5l4 4L18 8'/></svg>") center/14px no-repeat}
+.aviso{font-size:13px;line-height:1.5;color:var(--suave);margin-top:18px}
+
+/* ---------- convênios ---------- */
+.convenios{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.conv{display:flex;align-items:center;gap:12px;padding:14px 24px 14px 14px;border-radius:40px;font-weight:600;color:var(--navy);font-size:17px}
+.conv i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--cor);color:#fff;font-style:normal;font-size:15px;font-weight:700;flex:none}
+.nota{text-align:center;font-size:14.5px;color:var(--suave);margin-top:22px}
+.nota a{color:var(--azul);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- empresas ---------- */
+.empresas{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.linhas{display:grid;gap:14px}
+.linha-v{display:flex;gap:18px;align-items:center;padding:20px 22px;border-radius:22px}
+.linha-v h3{font-family:var(--sans);font-size:18px;font-weight:600;color:var(--navy);line-height:1.3}
+.linha-v p{font-size:15px;line-height:1.5}
+
+/* ---------- diferenciais ---------- */
+.difs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dif{display:flex;gap:16px;align-items:flex-start;padding:24px}
+.dif h3{font-family:var(--sans);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:4px}
+.dif p{font-size:15px;line-height:1.5}
+
+/* ---------- avaliações ---------- */
+.nota-google{display:flex;align-items:center;gap:22px;padding:22px 30px;border-radius:26px;width:fit-content;margin:0 auto 40px}
+.nota-google b{font-family:var(--serif);font-size:56px;color:var(--navy);line-height:1}
+.nota-google small{display:block;font-size:14px;color:var(--suave);margin-top:4px}
+.estrelas{--n:5;position:relative;display:inline-block;font-size:22px;letter-spacing:3px;line-height:1;color:rgba(18,58,110,.18)}
+.estrelas::before{content:"★★★★★"}
+.estrelas::after{content:"★★★★★";position:absolute;left:0;top:0;width:calc(var(--n) / 5 * 100%);overflow:hidden;color:#F2B01E;white-space:nowrap}
+.g{width:38px;height:38px;flex:none}
+.depos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.depo{padding:28px 28px 24px;display:flex;flex-direction:column;gap:14px;position:relative}
+.depo::before{content:"\201C";position:absolute;right:22px;top:6px;font-family:var(--serif);font-size:90px;line-height:1;color:var(--ciano);opacity:.45}
+.depo .estrelas{font-size:16px;letter-spacing:2px}
+.depo blockquote{font-size:16px;line-height:1.6;color:var(--texto);flex:1}
+.depo footer{all:unset;display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid rgba(18,58,110,.1)}
+.depo .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--cor,var(--navy));color:#fff;font-weight:700;font-size:15px;flex:none}
+.depo cite{font-style:normal;font-weight:600;color:var(--navy);font-size:15px;line-height:1.3}
+.depo cite small{display:block;font-weight:500;color:var(--suave);font-size:13px}
+.ver-todas{text-align:center;margin-top:30px}
+
+/* ---------- contato ---------- */
+.contato{border-radius:36px;padding:64px 56px;position:relative;overflow:hidden;color:rgba(255,255,255,.82);
+  background:linear-gradient(165deg,#0A4A84 0%,#1068b2 55%,#56c4cf 100%)}
+.contato::after{content:"";position:absolute;inset:0;background:var(--noise);background-size:180px;opacity:.45;mix-blend-mode:overlay;pointer-events:none}
+.contato > *{position:relative;z-index:1}
+.contato h2{color:#fff}
+.contato h2 em{color:#BFF1F5}
+.contato .sobre{color:#BFF1F5}
+.contato .topo-c{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:44px}
+.canais{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.canal{display:flex;gap:16px;align-items:center;padding:20px 22px;border-radius:22px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background .2s}
+a.canal:hover{background:rgba(255,255,255,.22)}
+.canal .tile{background:#fff;width:48px;height:48px;border-radius:15px}
+.canal .tile svg{stroke:var(--navy);width:23px;height:23px}
+.canal small{display:block;font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#BFF1F5}
+.canal b{display:block;color:#fff;font-size:17px;font-weight:600;line-height:1.35;word-break:break-word}
+.canal span{font-size:13.5px}
+.contato .btn-branco{background:#fff;color:var(--navy);box-shadow:0 14px 30px rgba(5,25,50,.25)}
+.contato .btn-branco:hover{transform:translateY(-2px)}
+.infos{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.infos span{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:30px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:14.5px;font-weight:500}
+.infos svg{width:17px;height:17px;stroke:#BFF1F5;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.contato > .balao{position:absolute;z-index:0;right:5%;top:18px;width:62px;height:93px;--b1:#fff;--b2:#BFF1F5;opacity:.9}
+.contato .btn-branco svg{stroke:var(--navy)}
+
+/* ---------- rodapé ---------- */
+footer{padding:20px 0 70px;font-size:14px;color:var(--suave)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer img{height:72px}
+footer p{max-width:560px;line-height:1.55}
+
+/* ---------- whatsapp flutuante ---------- */
+.zap{position:fixed;right:22px;bottom:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 14px 30px rgba(10,60,30,.3);transition:transform .2s}
+.zap:hover{transform:scale(1.07)}
+.zap svg{width:32px;height:32px}
+
+/* ---------- entrada suave ---------- */
+.js .surge{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.js .surge.ok{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .surge{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- responsivo ---------- */
+@media (max-width:1240px){
+  .menu{display:none}
+  .abre-menu{display:grid}
+  .topo .btn span{display:none}
+  .topo .btn{padding:11px}
+  .menu.aberto{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:calc(100% + 10px);padding:12px;border-radius:26px;
+    background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:var(--borda);box-shadow:0 24px 48px rgba(16,104,178,.22)}
+  .menu.aberto a{padding:14px 18px;font-size:17px}
+}
+@media (max-width:1080px){
+  .menu{display:none}
+  .abre-menu{display:grid}
+  .topo .btn span{display:none}
+  .topo .btn{padding:11px}
+  .menu.aberto{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:calc(100% + 10px);padding:12px;border-radius:26px;
+    background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:var(--borda);box-shadow:0 24px 48px rgba(16,104,178,.22)}
+  .menu.aberto a{padding:14px 18px;font-size:17px}
+  .hero .grade,.mais,.empresas{grid-template-columns:minmax(0,1fr)}
+  .arte{max-width:440px;margin:0 auto;width:100%}
+  .especialidades,.difs,.canais,.depos{grid-template-columns:repeat(2,1fr)}
+  .passos{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  section{padding:64px 0}
+  .hero{padding:36px 0 56px}
+  .hero .painel{padding:32px 24px 28px}
+  .hero .acoes .btn{width:100%;justify-content:center}
+  .frentes,.especialidades,.difs,.canais,.passos,.depos{grid-template-columns:minmax(0,1fr)}
+  .nota-google{flex-wrap:wrap;justify-content:center;text-align:center;padding:20px}
+  .hero h1{font-size:clamp(34px,10vw,44px);overflow-wrap:break-word}
+  section > .bolha{display:none}
+  .hero .balao.b2{display:none}
+  .local{margin:10px 0 0}
+  .contato .balao{display:none}
+  h2{overflow-wrap:break-word}
+  .mais{padding:36px 24px}
+  .contato{padding:44px 22px;border-radius:28px}
+  .arte .selo{padding:12px 14px}
+  .arte .selo b{font-size:24px}
+  .arte .s1{left:0}
+  .arte .s2{right:0}
+  .chip img{height:44px}
+  .chip .toggle{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="manchas" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grao" aria-hidden="true"></div>
+
+<!-- ícones reutilizáveis -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mao" viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5V4a1.5 1.5 0 0 1 3 0v7.5"/><path d="M14 11.5V5.5a1.5 1.5 0 0 1 3 0V14"/><path d="M17 9.5a1.5 1.5 0 0 1 3 0V15a7 7 0 0 1-7 7h-1.2a6 6 0 0 1-4.6-2.2L4 15.5a1.6 1.6 0 0 1 2.4-2.1L8 15"/></symbol>
+    <symbol id="i-fala" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></symbol>
+    <symbol id="i-coracao" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
+    <symbol id="i-movimento" viewBox="0 0 24 24"><circle cx="13" cy="4.5" r="2"/><path d="M9 21l2.5-6 3 2.5V22M7 11l3.5-3.5L14 9l2.5 3H19M11.5 15L14 9"/></symbol>
+    <symbol id="i-livro" viewBox="0 0 24 24"><path d="M4 4.5h6.5A2.5 2.5 0 0 1 13 7v13a2 2 0 0 0-2-2H4z"/><path d="M20 4.5h-6.5A2.5 2.5 0 0 0 11 7v13a2 2 0 0 1 2-2h7z"/></symbol>
+    <symbol id="i-pecas" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="4"/><rect x="3" y="13" width="8" height="8" rx="4"/><path d="M17 13l4 8h-8z"/></symbol>
+    <symbol id="i-cerebro" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3h1V4z"/><path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3h-1V4z"/></symbol>
+    <symbol id="i-estetoscopio" viewBox="0 0 24 24"><path d="M6 3v6a5 5 0 0 0 10 0V3"/><path d="M11 14v2a4 4 0 0 0 8 0v-2"/><circle cx="19" cy="12" r="2"/></symbol>
+    <symbol id="i-bebe" viewBox="0 0 24 24"><circle cx="12" cy="11" r="2.8"/><path d="M8 20.5a4 4 0 0 1 8 0"/><path d="M10.5 6.5c.5-1.5 2.5-1.5 3 0"/></symbol>
+    <symbol id="i-adulto" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></symbol>
+    <symbol id="i-idoso" viewBox="0 0 24 24"><circle cx="11" cy="6" r="3"/><path d="M6 21l2-8h6l1 4M17 11v10"/></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2z"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-predio" viewBox="0 0 24 24"><path d="M4 21V5l8-2v18M12 8h8v13M8 8h.01M8 12h.01M8 16h.01M16 12h.01M16 16h.01M2 21h20"/></symbol>
+    <symbol id="i-equipe" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-alvo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6"/></symbol>
+    <symbol id="i-escola" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/></symbol>
+    <symbol id="i-elo" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-cartao" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18M7 15h4"/></symbol>
+    <symbol id="i-telefone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5L12 13l8.5-6.5"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8"/></symbol>
+    <symbol id="i-agenda" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M8 14h3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="balao" viewBox="0 0 60 90">
+      <path d="M30 2C14 2 3 14 3 29c0 15 15 26 21 35h12c6-9 21-20 21-35C57 14 46 2 30 2z" fill="var(--b1,#1068b2)"/>
+      <path d="M30 2c-8 0-13 12-13 27 0 15 7 26 10 35h6c3-9 10-20 10-35C43 14 38 2 30 2z" fill="var(--b2,#56c4cf)"/>
+      <path d="M30 2c-3 0-5 12-5 27 0 15 3 26 4 35h2c1-9 4-20 4-35 0-15-2-27-5-27z" fill="#fff" opacity=".55"/>
+      <ellipse cx="19" cy="20" rx="5" ry="9" fill="#fff" opacity=".35" transform="rotate(20 19 20)"/>
+      <path d="M25 64l1 10M35 64l-1 10" stroke="#5A6B80" stroke-width="1.2"/>
+      <rect x="24.5" y="74" width="11" height="8" rx="2" fill="#B9835A"/>
+    </symbol>
+    <!-- pétala do catavento da logo -->
+    <path id="petala" d="M5,-142 Q2,-142 2,-137 L2,-20 Q2,-12 10,-12 L40,-12 C63,-12 76,-29 76,-50 C76,-58 73,-65 68,-73 L13,-139 Q10,-143 5,-142 Z"/>
+  </defs>
+</svg>
+
+<!-- ================= TOPO ================= -->
+<header class="topo wrap">
+  <nav class="barra" aria-label="Principal">
+    <a href="#inicio" class="chip" aria-label="Equilibrium Medcenter, início">
+      <span class="toggle" aria-hidden="true"></span>
+      <img src="assets/logo.png" alt="Equilibrium Med Center">
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#frentes">A clínica</a></li>
+      <li><a href="#especialidades">Especialidades</a></li>
+      <li><a href="#como-funciona">Como agendar</a></li>
+      <li><a href="#mais-saude">Cartão +Saúde</a></li>
+      <li><a href="#convenios">Convênios</a></li>
+      <li><a href="#empresas">Empresas</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a class="btn btn-escuro" href="https://wa.me/5534997813331?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20na%20Equilibrium." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-whats"/></svg><span>Agendar</span>
+      </a>
+      <button class="abre-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="inicio">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="bolha" style="width:150px;height:150px;left:46%;top:2%;animation-delay:-2s"></div>
+  <div class="bolha" style="width:60px;height:60px;left:52%;top:30%;animation-delay:-5s"></div>
+  <div class="bolha" style="width:110px;height:110px;left:3%;bottom:4%;animation-delay:-1s"></div>
+  <svg class="trilha" viewBox="0 0 1400 800" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 640 C 220 560, 260 760, 520 700 S 900 420, 1060 520 S 1300 300, 1420 160"/></svg>
+  <div class="balao b1" style="width:64px;height:96px;right:6%;bottom:6%"><svg><use href="#balao"/></svg></div>
+  <div class="balao b2" style="width:42px;height:63px;left:47%;top:58%;animation-delay:-4s;--b1:#56c4cf;--b2:#123A6E"><svg><use href="#balao"/></svg></div>
+  <div class="wrap grade">
+    <div class="painel vidro surge">
+      <span class="etiqueta">Movimento que acolhe</span><span class="local">Uberlândia/MG · desde 2019</span>
+      <h1>Cuidado que integra <em>mente</em>, desenvolvimento e vida.</h1>
+      <p class="lead">Psicologia, neuropsicologia, psiquiatria e terapias do neurodesenvolvimento no mesmo lugar, com uma equipe que conversa entre si para cuidar de você e da sua família.</p>
+      <div class="acoes">
+        <a class="btn btn-escuro" href="https://wa.me/5534997813331?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20na%20Equilibrium." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-whats"/></svg>Agendar pelo WhatsApp
+        </a>
+        <a class="btn btn-vidro btn-seta" href="#especialidades">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-seta"/></svg></span>Ver especialidades
+        </a>
+      </div>
+      <div class="publico">
+        <span class="tile"><svg><use href="#i-bebe"/></svg></span>
+        <span class="tile"><svg><use href="#i-adulto"/></svg></span>
+        <span class="tile"><svg><use href="#i-idoso"/></svg></span>
+        <p>Da infância<br>à terceira idade</p>
+      </div>
+    </div>
+
+    <div class="arte surge" aria-hidden="true">
+      <svg class="catavento" viewBox="-155 -155 310 310">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1569B0" stop-opacity=".82"/><stop offset="1" stop-color="#1569B0"/></linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#58C4CF"/><stop offset="1" stop-color="#58C4CF" stop-opacity=".85"/></linearGradient>
+          <pattern id="ht" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.05" fill="#fff"/></pattern>
+          <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <mask id="m"><rect x="-160" y="-160" width="320" height="320" fill="url(#mg)"/></mask>
+        </defs>
+        <use href="#petala" fill="url(#g1)"/>
+        <use href="#petala" fill="url(#g2)" transform="rotate(90)"/>
+        <use href="#petala" fill="url(#g1)" transform="rotate(180)"/>
+        <use href="#petala" fill="url(#g2)" transform="rotate(270)"/>
+        <g mask="url(#m)" opacity=".35">
+          <use href="#petala" fill="url(#ht)"/><use href="#petala" fill="url(#ht)" transform="rotate(90)"/>
+          <use href="#petala" fill="url(#ht)" transform="rotate(180)"/><use href="#petala" fill="url(#ht)" transform="rotate(270)"/>
+        </g>
+      </svg>
+      <div class="selo vidro s2"><span class="tile" style="--cor:var(--ciano)"><svg><use href="#i-pecas"/></svg></span><div><b>9</b><small>especialidades<br>integradas</small></div></div>
+      <div class="selo vidro s1"><span class="tile"><svg><use href="#i-coracao"/></svg></span><div><b>3</b><small>frentes: adulto,<br>infantil e empresas</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FRENTES ================= -->
+<section id="frentes">
+  <div class="wrap">
+    <div class="cabeca surge">
+      <span class="sobre">Um grupo, três frentes</span>
+      <h2>Do cuidado individual <em>à organização</em>.</h2>
+      <p class="lead">Unimos saúde mental, neurodesenvolvimento e recursos humanos para acompanhar cada pessoa em todas as fases da vida, inclusive no trabalho.</p>
+    </div>
+    <div class="frentes">
+      <article class="frente vidro surge" style="--cor:#1068b2">
+        <span class="tile" style="--cor:#1068b2"><svg><use href="#i-cerebro"/></svg></span>
+        <small>Equilibrium</small><h3>Med Center</h3><div class="para">Adolescentes e adultos</div>
+        <p>Avaliação neuropsicológica, psiquiatria, psicologia e clínica médica com foco em saúde mental.</p>
+      </article>
+      <article class="frente vidro surge" style="--cor:#2E9E95">
+        <span class="tile" style="--cor:#2E9E95"><svg><use href="#i-pecas"/></svg></span>
+        <small>Equilibrium</small><h3>Terapias Infantil</h3><div class="para">Crianças e famílias</div>
+        <p>Avaliação, terapia ABA, terapia ocupacional, fono e estimulação do desenvolvimento, com orientação à família e à escola.</p>
+      </article>
+      <article class="frente vidro surge" style="--cor:#123A6E">
+        <span class="tile" style="--cor:#123A6E"><svg><use href="#i-predio"/></svg></span>
+        <small>Equilibrium</small><h3>Talentos</h3><div class="para">RH e inclusão</div>
+        <p>Inclusão de pessoas com altas habilidades e autismo no trabalho e consultoria em saúde mental para empresas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESPECIALIDADES ================= -->
+<section id="especialidades">
+  <div class="bolha" style="width:130px;height:130px;right:4%;top:60px;animation-delay:-4s"></div>
+  <div class="wrap">
+    <div class="cabeca surge">
+      <span class="sobre">Nossas especialidades</span>
+      <h2>Tudo o que o cuidado pede, <em>num só lugar</em>.</h2>
+      <p class="lead">Cada profissional atua na sua área, e o plano de cuidado é pensado em conjunto.</p>
+    </div>
+    <div class="especialidades">
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#1068b2"><svg><use href="#i-coracao"/></svg></span><h3>Psicologia</h3></div>
+        <p>Psicoterapia para lidar com ansiedade, emoções, relações e fases difíceis da vida.</p>
+        <div class="idades"><span>Crianças</span><span>Adolescentes</span><span>Adultos</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#3FB3C0"><svg><use href="#i-cerebro"/></svg></span><h3>Neuropsicologia</h3></div>
+        <p>Avaliação de atenção, memória, funções executivas e inteligência, com laudo conforme o CFP. Investigação de TDAH, TEA e altas habilidades.</p>
+        <div class="idades"><span>Da infância ao idoso</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#173F7E"><svg><use href="#i-estetoscopio"/></svg></span><h3>Psiquiatria</h3></div>
+        <p>Diagnóstico e acompanhamento médico, integrados à avaliação e à terapia.</p>
+        <div class="idades"><span>Adolescentes</span><span>Adultos</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#2E9E95"><svg><use href="#i-mao"/></svg></span><h3>Terapia Ocupacional</h3></div>
+        <p>Mais autonomia nas atividades do dia a dia, com trabalho de coordenação, rotina e processamento sensorial.</p>
+        <div class="idades"><span>Todas as idades</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#D9734E"><svg><use href="#i-fala"/></svg></span><h3>Fonoaudiologia</h3></div>
+        <p>Desenvolvimento da fala, da linguagem e da comunicação.</p>
+        <div class="idades"><span>Crianças</span><span>Adolescentes</span><span>Adultos</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#4E9F5E"><svg><use href="#i-pecas"/></svg></span><h3>Terapia ABA</h3></div>
+        <p>Programas individualizados de comunicação, autonomia, comportamento e aprendizagem para pessoas com autismo.</p>
+        <div class="idades"><span>Crianças</span><span>Adolescentes</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#D69A2D"><svg><use href="#i-movimento"/></svg></span><h3>Psicomotricidade</h3></div>
+        <p>Corpo, movimento e emoção trabalhados juntos para o desenvolvimento motor e a coordenação.</p>
+        <div class="idades"><span>Crianças</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#7462C4"><svg><use href="#i-livro"/></svg></span><h3>Psicopedagogia</h3></div>
+        <p>Apoio às dificuldades de aprendizagem, em parceria com a família e a escola.</p>
+        <div class="idades"><span>Crianças</span><span>Adolescentes</span></div>
+      </article>
+      <article class="espec vidro surge">
+        <div class="linha"><span class="tile" style="--cor:#4F86B8"><svg><use href="#i-estetoscopio"/></svg></span><h3>Clínica Médica</h3></div>
+        <p>Atendimento clínico voltado à saúde mental, em conjunto com a equipe.</p>
+        <div class="idades"><span>Adultos</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="cabeca centro surge">
+      <span class="sobre">Como agendar</span>
+      <h2>Começar é <em>simples</em>.</h2>
+      <p class="lead">Do primeiro contato ao acompanhamento, você sabe o que esperar em cada etapa.</p>
+    </div>
+    <div class="passos" style="position:relative">
+      <svg class="trilha" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true" style="top:-40px;height:calc(100% + 80px)"><path d="M0 120 C 120 20, 220 220, 360 110 S 600 10, 700 120 S 900 200, 1000 60"/></svg>
+      <div class="passo vidro surge"><h3>Fale com a gente</h3><p>Chame no WhatsApp ou ligue. Nossa equipe tira suas dúvidas e indica o melhor caminho.</p></div>
+      <div class="passo vidro surge"><h3>Agende</h3><p>Escolha o dia e o horário que cabem na sua rotina.</p></div>
+      <div class="passo vidro surge"><h3>Primeira consulta</h3><p>Escuta cuidadosa para entender a sua história e o que você busca.</p></div>
+      <div class="passo vidro surge"><h3>Plano de cuidado</h3><p>Um acompanhamento pensado para você, com a equipe trabalhando junta quando é preciso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CARTÃO +SAÚDE ================= -->
+<section id="mais-saude">
+  <div class="wrap">
+    <div class="mais vidro surge">
+      <div class="bolha" style="width:120px;height:120px;left:-30px;bottom:-30px"></div>
+      <div>
+        <div class="cartao" aria-label="Cartão de benefícios Equilibrium Mais Saúde">
+          <svg viewBox="-155 -155 310 310" aria-hidden="true">
+            <use href="#petala" fill="#fff"/><use href="#petala" fill="#fff" transform="rotate(90)"/>
+            <use href="#petala" fill="#fff" transform="rotate(180)"/><use href="#petala" fill="#fff" transform="rotate(270)"/>
+          </svg>
+          <div class="marca"><img src="assets/simbolo.png" alt=""><div><b>equilibrium</b><i>mais saúde</i></div></div>
+          <div class="rot">CARTÃO DE BENEFÍCIOS</div>
+          <div class="num">5099&nbsp; 0000&nbsp; 0000&nbsp; 2026</div>
+        </div>
+      </div>
+      <div>
+        <span class="sobre">Cartão Equilibrium +Saúde</span>
+        <h2>Cuidar sai <em>mais leve</em>.</h2>
+        <div class="preco"><b>R$&nbsp;59,99</b><span>/mês</span></div>
+        <p>Adesão única de R$&nbsp;50, individual.</p>
+        <ul class="lista">
+          <li>Até 50% de desconto nos atendimentos da rede própria Equilibrium</li>
+          <li>Sem fidelidade: cancele quando quiser</li>
+          <li>Planos para empresas a partir de R$&nbsp;16 por colaborador</li>
+        </ul>
+        <a class="btn btn-escuro" href="https://maisequilibriumsaude.com.br" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-cartao"/></svg>Conhecer o cartão
+        </a>
+        <p class="aviso">Programa de benefícios e descontos em serviços da rede própria Equilibrium. Não é plano de saúde nem seguro-saúde (Lei nº 9.656/98). Na avaliação neuropsicológica, o desconto integral vale após 180 dias de vínculo ou com quitação anual antecipada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONVÊNIOS ================= -->
+<section id="convenios" style="padding-top:24px">
+  <div class="wrap">
+    <div class="cabeca centro surge">
+      <span class="sobre">Convênios</span>
+      <h2>Atendemos pelo <em>seu plano</em>.</h2>
+      <p class="lead">Além do atendimento particular e do Cartão +Saúde, somos credenciados aos convênios abaixo.</p>
+    </div>
+    <div class="convenios surge">
+      <span class="conv vidro" style="--cor:#00995D"><i>U</i>Unimed</span>
+      <span class="conv vidro" style="--cor:#1B4F9C"><i>P</i>Plam</span>
+      <span class="conv vidro" style="--cor:#2A7DC1"><i>U</i>UsiSaúde</span>
+      <span class="conv vidro" style="--cor:#C9862B"><i>N</i>NDI Minas</span>
+      <span class="conv vidro" style="--cor:#D2232A"><i>G</i>GEAP Saúde</span>
+    </div>
+    <p class="nota surge">A cobertura varia conforme o plano e a especialidade. <a href="https://wa.me/5534997813331?text=Ol%C3%A1!%20Gostaria%20de%20saber%20se%20meu%20conv%C3%AAnio%20cobre%20o%20atendimento." target="_blank" rel="noopener">Confirme a sua pelo WhatsApp</a>.</p>
+  </div>
+</section>
+
+<!-- ================= EMPRESAS ================= -->
+<section id="empresas">
+  <div class="wrap empresas">
+    <div class="surge">
+      <span class="sobre">Equilibrium Talentos · para empresas</span>
+      <h2>Saúde mental e inclusão <em>com método</em>.</h2>
+      <p class="lead" style="margin-bottom:30px">Levamos o olhar clínico para dentro das organizações, do recrutamento à prevenção de riscos psicossociais.</p>
+      <a class="btn btn-escuro" href="mailto:gestaoequilibriummedcenter@gmail.com?subject=Equilibrium%20Talentos%20-%20contato%20empresarial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-mail"/></svg>Falar com a equipe
+      </a>
+    </div>
+    <div class="linhas">
+      <div class="linha-v vidro surge"><span class="tile"><svg><use href="#i-equipe"/></svg></span><div><h3>Inclusão de talentos</h3><p>Recrutamento, capacitação e acompanhamento de pessoas com altas habilidades e autismo, da contratação à adaptação.</p></div></div>
+      <div class="linha-v vidro surge"><span class="tile" style="--cor:var(--azul)"><svg><use href="#i-escudo"/></svg></span><div><h3>Consultoria e NR-1</h3><p>Saúde mental e neurodiversidade em empresas e no setor público, incluindo a gestão dos riscos psicossociais da NR-1.</p></div></div>
+      <div class="linha-v vidro surge"><span class="tile" style="--cor:#3FB3C0"><svg><use href="#i-escola"/></svg></span><div><h3>Formação e escolas</h3><p>Capacitação de professores e triagem de altas habilidades e dupla excepcionalidade.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIFERENCIAIS ================= -->
+<section id="diferenciais">
+  <div class="wrap">
+    <div class="cabeca centro surge">
+      <span class="sobre">Por que a Equilibrium</span>
+      <h2>O que nos <em>move</em>.</h2>
+    </div>
+    <div class="difs">
+      <div class="dif vidro surge"><span class="tile"><svg><use href="#i-equipe"/></svg></span><div><h3>Equipe integrada</h3><p>Profissionais que discutem cada caso juntos.</p></div></div>
+      <div class="dif vidro surge"><span class="tile"><svg><use href="#i-doc"/></svg></span><div><h3>Rigor técnico</h3><p>Avaliações e laudos conforme as normas do CFP.</p></div></div>
+      <div class="dif vidro surge"><span class="tile"><svg><use href="#i-coracao"/></svg></span><div><h3>Acolhimento</h3><p>Escuta sem julgamento, para o paciente e para a família.</p></div></div>
+      <div class="dif vidro surge"><span class="tile"><svg><use href="#i-elo"/></svg></span><div><h3>Do indivíduo à organização</h3><p>Da clínica à escola e ao trabalho.</p></div></div>
+      <div class="dif vidro surge"><span class="tile"><svg><use href="#i-alvo"/></svg></span><div><h3>Inclusão com método</h3><p>Perfil, função e suporte para cada pessoa.</p></div></div>
+      <div class="dif vidro surge"><span class="tile"><svg><use href="#i-escudo"/></svg></span><div><h3>Conformidade</h3><p>Parceira das empresas na gestão de riscos psicossociais.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AVALIAÇÕES ================= -->
+<section id="avaliacoes">
+  <div class="bolha" style="width:120px;height:120px;left:3%;top:40px;animation-delay:-3s"></div>
+  <div class="wrap">
+    <div class="cabeca centro surge">
+      <span class="sobre">Avaliações</span>
+      <h2>Quem passa por aqui <em>recomenda</em>.</h2>
+    </div>
+    <a class="nota-google vidro surge" href="https://www.google.com/maps/search/?api=1&amp;query=EQUILIBRIUM+MEDCENTER+Uberl%C3%A2ndia" target="_blank" rel="noopener" aria-label="Nota 4,4 de 5 no Google, 93 avaliações">
+      <svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+      <b>4,4</b>
+      <div><span class="estrelas" style="--n:4.4" aria-hidden="true"></span><small>93 avaliações no Google</small></div>
+    </a>
+    <div class="depos">
+      <figure class="depo vidro surge">
+        <span class="estrelas" role="img" aria-label="5 de 5 estrelas"></span>
+        <blockquote>Excelente atendimento, acolhimento fantástico desde o agendamento da consulta e dos retornos. Foram impecáveis na apresentação dos resultados no laudo, descritos com clareza e de fácil entendimento. Recomendo!</blockquote>
+        <footer><span class="av" style="--cor:#1068b2">W</span><cite>Wellington P.<small>Avaliação no Google</small></cite></footer>
+      </figure>
+      <figure class="depo vidro surge">
+        <span class="estrelas" role="img" aria-label="5 de 5 estrelas"></span>
+        <blockquote>Fiz minhas avaliações e a experiência foi excelente. Desde a recepção até a consulta, fui muito bem tratado. O profissional demonstrou muita empatia e explicou cada etapa do processo.</blockquote>
+        <footer><span class="av" style="--cor:#2E9E95">D</span><cite>Douglas A.<small>Avaliação no Google</small></cite></footer>
+      </figure>
+      <figure class="depo vidro surge">
+        <span class="estrelas" role="img" aria-label="5 de 5 estrelas"></span>
+        <blockquote>A clínica deu todo suporte durante as avaliações das minhas filhas. O local conta com uma equipe multidisciplinar atenciosa e competente, que sempre nos tratou com muito carinho e respeito.</blockquote>
+        <footer><span class="av" style="--cor:#7462C4">M</span><cite>Mariane S.<small>Avaliação no Google</small></cite></footer>
+      </figure>
+      <figure class="depo vidro surge">
+        <span class="estrelas" role="img" aria-label="5 de 5 estrelas"></span>
+        <blockquote>Atendimento excelente. Fomos muito bem acolhidos, a equipe é atenciosa, com profissionais responsáveis e qualificados. Gratidão pelo cuidado, atenção e carinho. Recomendo sem dúvidas!</blockquote>
+        <footer><span class="av" style="--cor:#D9734E">M</span><cite>Mireli P.<small>Avaliação no Google</small></cite></footer>
+      </figure>
+      <figure class="depo vidro surge">
+        <span class="estrelas" role="img" aria-label="5 de 5 estrelas"></span>
+        <blockquote>Excelente atendimento do início ao fim! Equipe muito cordial e pontual. O laudo ficou bem detalhado e claro. Equipe nota 10!</blockquote>
+        <footer><span class="av" style="--cor:#3FB3C0">L</span><cite>Leidiane L.<small>Avaliação no Google</small></cite></footer>
+      </figure>
+      <figure class="depo vidro surge">
+        <span class="estrelas" role="img" aria-label="5 de 5 estrelas"></span>
+        <blockquote>Clínica super organizada, profissionais pontuais, sempre confirmavam presença e, se houvesse algum feriado, avisavam que não haveria expediente.</blockquote>
+        <footer><span class="av" style="--cor:#123A6E">M</span><cite>Michele L.<small>Avaliação no Google</small></cite></footer>
+      </figure>
+    </div>
+    <div class="ver-todas surge">
+      <a class="btn btn-vidro btn-seta" href="https://www.google.com/maps/search/?api=1&amp;query=EQUILIBRIUM+MEDCENTER+Uberl%C3%A2ndia" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-seta"/></svg></span>Ver todas no Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section id="contato">
+  <div class="wrap">
+    <div class="contato surge">
+      <div class="balao" aria-hidden="true"><svg><use href="#balao"/></svg></div>
+      <div class="topo-c">
+        <div>
+          <span class="sobre">Contato</span>
+          <h2>Vamos <em>conversar</em>?</h2>
+          <p class="lead" style="color:rgba(255,255,255,.85)">Fale com a área que você procura. A gente responde rapidinho.</p>
+          <div class="infos">
+            <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Seg a sex · 7h às 20h</span>
+            <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Sábado · 8h às 12h</span>
+            <span><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>4,4 no Google · 93 avaliações</span>
+          </div>
+        </div>
+        <a class="btn btn-branco" href="https://wa.me/5534997813331?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20na%20Equilibrium." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-whats"/></svg>Agendar agora
+        </a>
+      </div>
+      <div class="canais">
+        <a class="canal" href="https://wa.me/5534997813331" target="_blank" rel="noopener"><span class="tile"><svg><use href="#i-whats"/></svg></span><div><small>Atendimento</small><b>(34)&nbsp;99781-3331</b><span>Fixo (34)&nbsp;3212-9269</span></div></a>
+        <a class="canal" href="https://wa.me/5534996424575" target="_blank" rel="noopener"><span class="tile"><svg><use href="#i-cerebro"/></svg></span><div><small>Neuropsicologia</small><b>(34)&nbsp;99642-4575</b></div></a>
+        <a class="canal" href="https://wa.me/5534996412343" target="_blank" rel="noopener"><span class="tile"><svg><use href="#i-pecas"/></svg></span><div><small>Terapias Infantil</small><b>(34)&nbsp;99641-2343</b></div></a>
+        <a class="canal" href="https://www.google.com/maps/search/?api=1&query=Av.+Ces%C3%A1rio+Alvim+2001+Uberl%C3%A2ndia+MG" target="_blank" rel="noopener"><span class="tile"><svg><use href="#i-pin"/></svg></span><div><small>Endereço</small><b>Av. Cesário Alvim, 2001 e 2011</b><span>Nossa Sra. Aparecida · Uberlândia/MG · CEP&nbsp;38400-694</span></div></a>
+        <a class="canal" href="https://instagram.com/equilibrium.medcenter" target="_blank" rel="noopener"><span class="tile"><svg><use href="#i-insta"/></svg></span><div><small>Instagram</small><b>@equilibrium.medcenter</b></div></a>
+        <a class="canal" href="mailto:gestaoequilibriummedcenter@gmail.com"><span class="tile"><svg><use href="#i-mail"/></svg></span><div><small>E-mail</small><b>gestaoequilibrium<wbr>medcenter@gmail.com</b></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo.png" alt="Equilibrium Med Center">
+    <p><span class="slogan">Movimento que acolhe.</span> Equilibrium Medcenter Ltda · Grupo Equilibrium: Med Center, Terapias Infantil e Talentos.<br>Responsável técnico: Wessilon Marques de Sousa · CRP-04/53832</p>
+  </div>
+</footer>
+
+<a class="zap" href="https://wa.me/5534997813331?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20na%20Equilibrium." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-whats"/></svg>
+</a>
+
+<script>
+// menu no celular
+const btnMenu = document.querySelector('.abre-menu'), menu = document.getElementById('menu');
+btnMenu.addEventListener('click', () => {
+  const aberto = menu.classList.toggle('aberto');
+  btnMenu.setAttribute('aria-expanded', aberto);
+});
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menu.classList.remove('aberto'); btnMenu.setAttribute('aria-expanded', false);
+}));
+
+// entrada suave dos blocos
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('ok'); io.unobserve(e.target); }
+}), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.surge').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3) * 80 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
